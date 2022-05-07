@@ -63,23 +63,25 @@ export default () => {
     }
   ];
 
-  return <div className="content">
-    <div className="input-container">
-      <Row className="input-wrapper"> 
+  return (
+    <div className="content">
+      <div className="input-container">
+        <Row className="input-wrapper"> 
+          <Col>
+            {input}
+          </Col>
+        </Row>
+      </div>
+      <Row >
         <Col>
-          {input}
+          <Table
+            className="table"
+            dataSource={filtered_data}
+            columns={columns}
+            size="large"
+          />
         </Col>
       </Row>
     </div>
-    <Row >
-      <Col>
-        <Table
-          className="table"
-          dataSource={filtered_data}
-          columns={columns}
-          size="large"
-        />
-      </Col>
-    </Row>
-  </div>
+  );
 };
