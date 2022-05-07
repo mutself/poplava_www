@@ -44,7 +44,7 @@ export default () => {
   }, []);
 
   const suffix = <span>Знайдено {filtered_data.length} фрагментів</span>;
-  const input = <Input placeholder="Пошук" onChange={(e) => handle_search(e.target.value)} suffix={suffix}/>
+  const input = <Input className="input-search" placeholder="Пошук" onChange={(e) => handle_search(e.target.value)} suffix={suffix}/>
   const columns = [
     {
       title: 'Опис',
@@ -63,25 +63,23 @@ export default () => {
     }
   ];
 
-  return <>
-      <Row style={{ marginBottom: 20 }}></Row>
-      <Row align='middle'>
-
-          <Col>
-            {input}
-          </Col>
-
-      </Row>
-      <Row style={{ marginBottom: 20}}></Row>
-      <Row >
+  return <div className="content">
+    <div className="input-container">
+      <Row className="input-wrapper"> 
         <Col>
-          <Table
-              dataSource={filtered_data}
-              columns={columns}
-              size="large"
-          />
-          </Col>
-
+          {input}
+        </Col>
       </Row>
-  </>
+    </div>
+    <Row >
+      <Col>
+        <Table
+          className="table"
+          dataSource={filtered_data}
+          columns={columns}
+          size="large"
+        />
+      </Col>
+    </Row>
+  </div>
 };
