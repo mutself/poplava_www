@@ -44,7 +44,15 @@ export default () => {
   }, []);
 
   const suffix = <span>Знайдено {filtered_data.length} фрагментів</span>;
-  const input = <Input className="input-search" placeholder="Пошук" onChange={(e) => handle_search(e.target.value)} suffix={suffix}/>
+  const input = (
+    <Input
+      className="input-search"
+      placeholder="Пошук"
+      onChange={(e) => handle_search(e.target.value)}
+      suffix={suffix}
+    />
+  );
+
   const columns = [
     {
       title: 'Опис',
